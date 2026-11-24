@@ -1,9 +1,9 @@
 # Tellez Login Application
-C# Windows Forms classroom lab. Open Tellez_LoginApplication.csproj in Visual Studio. The project targets .NET 8 to match the initial setup screen; if you have .NET 10 installed, you can change net8.0-windows to net10.0-windows in the project file. .NET 8 is out of support.
+C# Windows Forms classroom lab. Open LoginApplication.csproj in Visual Studio. The project targets .net10.0-windows in the project file. 
 
 ## Setup
-1. Extract the ZIP to a new folder, separate from your original blank project.
-2. Open the .csproj file. Allow NuGet to restore Microsoft.Data.SqlClient (internet required).
+1. Extract the ZIP to a new folder separate from your original blank project.
+2. Open the .csproj file. Allow NuGet to restore Microsoft.Data.SqlClient 
 3. Open SQL Server Management Studio or Visual Studio View > SQL Server Object Explorer. Connect to .\SQLEXPRESS using Windows Authentication. If your instance differs, use its actual name (e.g. (localdb)\MSSQLLocalDB) here and in UserDatabase.cs.
 4. Open DatabaseSetup.sql in a SQL query window connected to that server and execute the whole script. You need permission to create a database.
 5. Build > Build Solution, then press F5.
@@ -19,9 +19,7 @@ C# Windows Forms classroom lab. Open Tellez_LoginApplication.csproj in Visual St
 - Run the SELECT at the end of DatabaseSetup.sql: only hash and salt are stored, not plaintext.
 
 ## Code guide
-Form1 handles the interface; LoggedInForm handles the success screen; UserValidator checks input; UserDatabase uses parameterized SQL; PasswordSecurity uses salted PBKDF2-SHA256. Hashing is intentionally one-way, unlike reversible encryption. The eight-character minimum is an additional classroom design choice. The local SQL connection trusts the server certificate for classroom convenience; production applications should validate certificates and use a server-side authentication service.
+Form1 handles the interface; LoggedInForm handles the success screen; UserValidator checks input; UserDatabase uses parameterized SQL; PasswordSecurity uses salted PBKDF2-SHA256. Hashing is intentionally one-way, unlike reversible encryption. The eight-character minimum is an additional classroom design choice. The local SQL connection trusts the server certificate; production applications should validate certificates and use a server-side authentication service.
 
 ## Submit
-Use Visual Studio Git > Create Git Repository to publish to GitHub. Include source files, project file, README and SQL script. Do not include real passwords, .vs, bin or obj. Submit the repository URL to the dropbox and ensure the professor can access it.
-
-The project was generated and source-reviewed but not compiled or tested against a live Windows SQL Server in this environment. Complete the tests above before submission.
+Use Visual Studio Git > Create Git Repository to publish to GitHub. Included source files, project file, README and SQL script. Did not include real passwords, .vs, bin or obj. Submit the repository URL to the dropbox
